@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import hdChart from '../../../../../../web/components/chart'
+import hdChart from "../../../../components/chart"
 
 export default {
     name: 'index',

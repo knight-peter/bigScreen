@@ -28,8 +28,8 @@
 </template>
 
 <script>
-    import hdChart from "../../../../../../web/components/chart"
-    import proxy from "../../../../../../web/modules/proxy";
+    import hdChart from "../../../../components/chart"
+    // import proxy from "../../../../../../web/modules/proxy";
     import svg_default from '../../../../static/images/svg/icon/default.svg'
     export default {
         name: "QSLS_Alert_Chart",

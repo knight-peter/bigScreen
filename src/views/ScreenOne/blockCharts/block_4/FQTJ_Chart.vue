@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import hdChart from "../../../../../../web/components/chart"
+    import hdChart from "../../../../components/chart"
     import api from '../../../../api'
     export default {
         name: "FQTJ_Chart",

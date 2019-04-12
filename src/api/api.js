@@ -1,4 +1,72 @@
 class Api {
+  /* 天气 */
+  _weather() {
+    let res = {
+      data: {
+        forecast: {
+          0: {
+            aqi: 21,
+            date: "12",
+            fl: "<3级",
+            fx: "东北风",
+            high: "高温 22.0℃",
+            low: "低温 17.0℃",
+            notice: "出门最好穿雨衣，勿挡视线",
+            sunrise: "06:26",
+            sunset: "19:01",
+            type: "大雨",
+            week: "星期五",
+            ymd: "2019-04-12"
+          },
+          1: {
+            aqi: 60,
+            date: "13",
+            fl: "<3级",
+            fx: "东风",
+            high: "高温 25.0℃",
+            low: "低温 18.0℃",
+            notice: "雨虽小，注意保暖别感冒",
+            sunrise: "06:25",
+            sunset: "19:01",
+            type: "小雨",
+            week: "星期六",
+            ymd: "2019-04-13"
+          },
+          2: {
+            aqi: 59,
+            date: "14",
+            fl: "<3级",
+            fx: "东北风",
+            high: "高温 26.0℃",
+            low: "低温 20.0℃",
+            notice: "阵雨来袭，出门记得带伞",
+            sunrise: "06:24",
+            sunset: "19:02",
+            type: "阵雨",
+            week: "星期日",
+            ymd: "2019-04-14"
+          },
+          3: {
+            aqi: 51,
+            date: "15",
+            fl: "<3级",
+            fx: "东南风",
+            high: "高温 25.0℃",
+            low: "低温 20.0℃",
+            notice: "记得随身携带雨伞哦",
+            sunrise: "06:23",
+            sunset: "19:02",
+            type: "中雨",
+            week: "星期一",
+            ymd: "2019-04-15"
+          }
+        }
+      }
+    };
+    return new Promise(resolve => {
+      resolve(res);
+    });
+  }
   /* 最小流量变化曲线 */
   _zxllbh(type) {
     let end;
@@ -161,7 +229,7 @@ class Api {
         [1554746640, -518.0],
         [1554834420, -500.0]
       ]
-    }
+    };
     switch (type) {
       case 1:
         end = res;
@@ -175,14 +243,14 @@ class Api {
     }
     // return end;
     return new Promise(resolve => {
-      resolve(end)
-    })
+      resolve(end);
+    });
   }
   /* 区域压力变化曲线 */
   _qyylbh(type) {
     let end;
     let res = {
-      "min_line_data": [
+      min_line_data: [
         ["2019-04-05", "0.220"],
         ["2019-04-06", "0.001"],
         ["2019-04-07", "0.186"],
@@ -191,8 +259,16 @@ class Api {
         ["2019-04-10", "0.158"],
         ["2019-04-11", "0.168"]
       ],
-      "xAris_data": ["2019-04-05", "2019-04-06", "2019-04-07", "2019-04-08", "2019-04-09", "2019-04-10", "2019-04-11"],
-      "max_line_data": [
+      xAris_data: [
+        "2019-04-05",
+        "2019-04-06",
+        "2019-04-07",
+        "2019-04-08",
+        "2019-04-09",
+        "2019-04-10",
+        "2019-04-11"
+      ],
+      max_line_data: [
         ["2019-04-05", "0.360"],
         ["2019-04-06", "0.389"],
         ["2019-04-07", "0.375"],
@@ -201,7 +277,7 @@ class Api {
         ["2019-04-10", "0.370"],
         ["2019-04-11", "0.358"]
       ],
-      "avg_line_data": [
+      avg_line_data: [
         ["2019-04-05", "0.27"],
         ["2019-04-06", "0.28"],
         ["2019-04-07", "0.28"],
@@ -210,7 +286,7 @@ class Api {
         ["2019-04-10", "0.27"],
         ["2019-04-11", "0.24"]
       ]
-    }
+    };
     switch (type) {
       case 1:
         end = res;
@@ -223,178 +299,231 @@ class Api {
         break;
     }
     return new Promise(resolve => {
-      resolve(end)
-    })
+      resolve(end);
+    });
   }
   /* 分区统计 */
   _fqtj() {
     let res = {
-      "circle_data": {
-        "center_name": "\u5e7f\u897f\u8d35\u6e2f\u5317\u63a7\u6c34\u52a1",
-        "num": 3,
-        "round_data": [{
-          "num": 9,
-          "name": "1\u53f7\u533a\u57df"
-        }, {
-          "num": 1,
-          "name": "2\u53f7\u533a\u57df"
-        }, {
-          "num": 0,
-          "name": "3\u53f7\u533a\u57df"
-        }, {
-          "num": 0,
-          "name": "4\u53f7\u533a\u57df"
-        }, {
-          "num": 0,
-          "name": "5\u53f7\u533a\u57df"
-        }, {
-          "num": 0,
-          "name": "6\u53f7\u533a\u57df"
-        }, {
-          "num": 0,
-          "name": "7\u53f7\u533a\u57df"
-        }]
+      circle_data: {
+        center_name: "\u5e7f\u897f\u8d35\u6e2f\u5317\u63a7\u6c34\u52a1",
+        num: 3,
+        round_data: [
+          {
+            num: 4,
+            name: "西江农场"
+          },
+          {
+            num: 1,
+            name: "侨光岭"
+          },
+          {
+            num: 1,
+            name: "南山"
+          },
+          {
+            num: 1,
+            name: "根竹镇"
+          },
+          {
+            num: 1,
+            name: "上龙"
+          },
+          {
+            num: 1,
+            name: "水利大厦"
+          },
+          {
+            num: 1,
+            name: "中里乡"
+          }
+        ]
       },
-      "level_data": {
-        "level_1": 3,
-        "level_2": 7,
-        "level_3": 10
+      level_data: {
+        level_1: 3,
+        level_2: 7,
+        level_3: 10
       }
-    }
+    };
     return new Promise(resolve => {
-      resolve(res)
-    })
+      resolve(res);
+    });
   }
   /* 区域供水占比图 */
   _qygs() {
     let res = {
-      "\u5357\u6c5f\u6c34\u5382": 19430.0,
-      "\u9f99\u5e8a\u4e95\u6c34\u5382": 33640.0
+      南江水厂: 19430.0,
+      龙床井水厂: 33640.0
     };
     return new Promise(resolve => {
-      resolve(res)
-    })
+      resolve(res);
+    });
   }
   /* 分区漏损排名 */
   _fqls() {
-    let res = [{
-      "division_name": "\u5206\u533a1",
-      "leakage_percentage": "100.0%",
-      "water_supply_month": 189874.0,
-      "water_sale_month": 333
-    }, {
-      "division_name": "\u5206\u533a\u4e8c",
-      "leakage_percentage": "10%",
-      "water_supply_month": 235465,
-      "water_sale_month": 5467
-    }]
+    let res = [
+      {
+        division_name: "侨光岭",
+        leakage_percentage: "100.0%",
+        water_supply_month: 189874.0,
+        water_sale_month: 333
+      },
+      {
+        division_name: "西江农场",
+        leakage_percentage: "90%",
+        water_supply_month: 235465,
+        water_sale_month: 5467
+      },
+      {
+        division_name: "中里乡",
+        leakage_percentage: "88%",
+        water_supply_month: 335465,
+        water_sale_month: 546723
+      },
+      {
+        division_name: "水利大厦",
+        leakage_percentage: "78%",
+        water_supply_month: 234465,
+        water_sale_month: 546734
+      },
+      {
+        division_name: "上龙",
+        leakage_percentage: "70%",
+        water_supply_month: 134465,
+        water_sale_month: 555734
+      },
+      {
+        division_name: "根竹镇",
+        leakage_percentage: "68%",
+        water_supply_month: 234465,
+        water_sale_month: 546734
+      },
+      {
+        division_name: "南山",
+        leakage_percentage: "65%",
+        water_supply_month: 134465,
+        water_sale_month: 555734
+      }
+    ];
     return new Promise(resolve => {
-      resolve(res)
-    })
+      resolve(res);
+    });
   }
   /* 小区漏损排名 */
   _xqls() {
-    let res = [{
-      "division_name": "小区一",
-      "leakage_percentage": "93.63%",
-      "water_supply_month": 1000,
-      "water_sale_month": 3000
-    }, {
-      "division_name": "小区二",
-      "leakage_percentage": "60%",
-      "water_supply_month": null,
-      "water_sale_month": null
-    }, {
-      "division_name": "小区三",
-      "leakage_percentage": "50%",
-      "water_supply_month": null,
-      "water_sale_month": null
-    }, {
-      "division_name": "小区四",
-      "leakage_percentage": "20%",
-      "water_supply_month": 10,
-      "water_sale_month": 20,
-    }, {
-      "division_name": "小区五",
-      "leakage_percentage": "20%",
-      "water_supply_month": 10,
-      "water_sale_month": 20,
-    }, ]
+    let res = [
+      {
+        division_name: "桂花园",
+        leakage_percentage: "93.63%",
+        water_supply_month: 1000,
+        water_sale_month: 3000
+      },
+      {
+        division_name: "红旗新区",
+        leakage_percentage: "60%",
+        water_supply_month: null,
+        water_sale_month: null
+      },
+      {
+        division_name: "县东社区",
+        leakage_percentage: "50%",
+        water_supply_month: null,
+        water_sale_month: null
+      },
+      {
+        division_name: "湖畔人家",
+        leakage_percentage: "20%",
+        water_supply_month: 10,
+        water_sale_month: 20
+      },
+      {
+        division_name: "贵钢小区",
+        leakage_percentage: "20%",
+        water_supply_month: 10,
+        water_sale_month: 20
+      }
+    ];
     return new Promise(resolve => {
-      resolve(res)
-    })
+      resolve(res);
+    });
   }
   /* 中间数据展示 */
   _center_data() {
     let res = {
-      "water_use": 0.0,
-      "water_use_change": -100.0,
-      "free": 0.0,
-      "water_supply": 465.0,
-      "cxc": 465.0,
-      "free_change": null,
-      "leak": 465.0,
-      "cxc_change": 48.94,
-      "water_supply_change": 22.39,
-      "leak_percentage": 100.0,
-      "leak_percentage_change": null,
-      "leak_change": 48.94
-    }
+      water_use: 0.0,
+      water_use_change: -100.0,
+      free: 0.0,
+      water_supply: 465.0,
+      cxc: 465.0,
+      free_change: null,
+      leak: 465.0,
+      cxc_change: 48.94,
+      water_supply_change: 22.39,
+      leak_percentage: 100.0,
+      leak_percentage_change: null,
+      leak_change: 48.94
+    };
     return new Promise(resolve => {
-      resolve(res)
-    })
+      resolve(res);
+    });
   }
   /* 地图 */
   _station_list() {
     let res = {
-      "Data": [],
-      "Total": 0,
-      "From": 0,
-      "Size": 16
-    }
+      Data: [],
+      Total: 0,
+      From: 0,
+      Size: 16
+    };
     return new Promise(resolve => {
-      resolve(res)
-    })
+      resolve(res);
+    });
   }
   _fqjl_dvtree() {
-    let res = [{
-        area: "109.56253051757812 23.122837454984705,109.544677734375 23.122995325859467,109.544677734375 23.09725992157651,109.56338882446289 23.09710202043826",
+    let res = [
+      {
+        area:
+          "109.59617614746095 23.146358166758745,109.58270072937013 23.14706845963994,109.57686424255373 23.14556894803141,109.56793785095216 23.141938482032224,109.56141471862794 23.137124016785137,109.55034255981447 23.12520549860231,109.5475959777832 23.120942989999765,109.5476818084717 23.1125754497471,109.54811096191408 23.108312540016765,109.55626487731935 23.10357581491568,109.596004486084 23.10491790399032",
         color: "#ebf743",
         iconCls: "std",
         iconSkin: "std",
         id: "0001",
         isParent: false,
         lv: 1,
-        name: "东关分公司",
+        name: "港城镇",
         pid: "test2c9c584ce6020c37test",
-        _id: "5ad6ffc2718db11580e71752",
+        _id: "5ad6ffc2718db11580e71752"
       },
       {
-        area: "109.56287384033203 23.12331106705174,109.59857940673828 23.12331106705174,109.59789276123047 23.109101977956197,109.56321716308594 23.105312633518658",
+        area:
+          "109.59643363952638 23.146516009946563,109.59609031677246 23.104996849988808,109.60218429565431 23.08478515994374,109.60930824279787 23.08739074380187,109.62355613708498 23.083363911097347,109.63514328002931 23.076099515684966,109.64329719543458 23.083205993631353,109.65806007385255 23.08604847963707,109.66166496276857 23.099707365487067,109.66930389404298 23.103654761703087,109.69179153442384 23.13373010953155,109.67411041259767 23.14178063345398,109.6315383911133 23.150462029224098",
         color: "#f587f5",
         iconCls: "std",
         iconSkin: "std",
         id: "dz",
         isParent: false,
         lv: 1,
-        name: "德州",
+        name: "港东新区",
         pid: "test2c9c584ce6020c37test",
-        _id: "5b86295ca78d4127b8aa76a0",
+        _id: "5b86295ca78d4127b8aa76a0"
       },
-      {area: "109.5637321472168 23.104838957945432,109.59239959716797 23.10768098632344,109.5937728881836 23.101207389714883,109.56356048583984 23.097733623877765",
-      color: "#1be6f5",
-      iconCls: "std",
-      iconSkin: "std",
-      id: "00012",
-      isParent: false,
-      lv: 1,
-      name: "中科君达测试",
-      pid: "test2c9c584ce6020c37test",
-      _id: "5bfcb8af910a6108fc6d6c61",}
-    ]
+      {
+        area:
+          "109.59669113159181 23.104838957945432,109.57180023193361 23.104523173301768,109.55583572387697 23.10310213321667,109.54673767089845 23.109101977956197,109.5491409301758 23.09331233744677,109.55549240112306 23.08225848493991,109.55686569213869 23.068360923710944,109.58055496215822 23.04514247728479,109.6150588989258 23.047669849337712,109.62244033813478 23.069150596349857,109.61385726928712 23.067571246436874,109.60201263427736 23.084153495644827",
+        color: "#1be6f5",
+        iconCls: "std",
+        iconSkin: "std",
+        id: "00012",
+        isParent: false,
+        lv: 1,
+        name: "南山镇",
+        pid: "test2c9c584ce6020c37test",
+        _id: "5bfcb8af910a6108fc6d6c61"
+      }
+    ];
     return new Promise(resolve => {
-      resolve(res)
-    })
+      resolve(res);
+    });
   }
 }
 export default Api;
