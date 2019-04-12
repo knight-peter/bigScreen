@@ -239,7 +239,7 @@ export default {
               .addTo(map);
             var num = self.getSubNum(response, ele);
 
-            var layers = [];
+            // var layers = [];
 
             polygon.bindPopup(
               `<div class="site-box box-shadow-1" style="z-index:-1;">
