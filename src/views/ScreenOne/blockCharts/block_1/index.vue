@@ -2,6 +2,9 @@
   <div
     class="full-width-height flex-box inner-padding"
     style="flex-flow: column;align-items: center"
+    v-loading="loading"
+    element-loading-text="拼命加载中"
+    element-loading-background="rgba(0, 0, 0, 0.8)"
   >
     <div class="full-width flex-box" style="height:90%;">
       <div class="flex-box" style="width:80%;align-items:center">
@@ -165,31 +168,17 @@ export default {
         day: "-",
         weekday: "___",
         time: "--:--:--"
-      }
+      },
+      loading: true
     };
   },
 
   methods: {
     reflesh_weather_data: function() {
       let that = this;
-      api._weather().then(result => {
-        let useful_data_set = result.data.forecast;
-        that.weather_data.today = that.parse_one_day_weather(
-          useful_data_set[0]
-        );
-        that.weather_data.one_day_after = that.parse_one_day_weather(
-          useful_data_set[1]
-        );
-        that.weather_data.two_day_after = that.parse_one_day_weather(
-          useful_data_set[2]
-        );
-        that.weather_data.three_day_after = that.parse_one_day_weather(
-          useful_data_set[3]
-        );
-      });
-      /* $.ajax({
-        url: "http://t.weather.sojson.com/api/weather/city/" + this.city_code,
-        success: function(result) {
+      api
+        ._weather()
+        .then(result => {
           let useful_data_set = result.data.forecast;
           that.weather_data.today = that.parse_one_day_weather(
             useful_data_set[0]
@@ -203,8 +192,10 @@ export default {
           that.weather_data.three_day_after = that.parse_one_day_weather(
             useful_data_set[3]
           );
-        }
-      }); */
+        })
+        .then(() => {
+          that.loading = false;
+        });
     },
 
     parse_one_day_weather: function(one_day_result) {

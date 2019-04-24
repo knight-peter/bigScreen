@@ -7,7 +7,7 @@
       class="font-blue"
       style="font-size: 280%;letter-spacing:12px;margin-bottom: 16px"
     >
-      贵港被控分区计量系统
+      漏损控制分区计量系统
     </h3>
     <div class="flex-box m-block-group" style="">
       <div class="outter-block">
@@ -101,45 +101,45 @@ export default {
     return {
       details: {
         GSL: {
-          num: 1234567,
+          num: 938,
           compare: {
             arrow: "▲",
-            percentage: "10%"
+            percentage: "9.06%"
           }
         },
         SSL: {
-          num: 1234567,
+          num: 837,
           compare: {
-            arrow: "▼",
-            percentage: "10%"
+            arrow: "▲",
+            percentage: "13.84%"
           }
         },
         MFSL: {
-          num: 1234567,
+          num: 13,
           compare: {
             arrow: "▲",
-            percentage: "10%"
+            percentage: "2%"
           }
         },
         LSSL: {
-          num: 1234567,
+          num: 101,
           compare: {
             arrow: "▼",
-            percentage: "10%"
+            percentage: "31%"
           }
         },
         CXC: {
-          num: 1234567,
+          num: 88,
           compare: {
             arrow: "▼",
-            percentage: "10%"
+            percentage: "41.02%"
           }
         },
         LSL: {
-          num: 1234567,
+          num: 9.38,
           compare: {
             arrow: "▼",
-            percentage: "10%"
+            percentage: "31%"
           }
         }
       }
@@ -150,7 +150,7 @@ export default {
   methods: {
     reflesh_data() {
       let that = this;
-      api._center_data().then(response => {
+      /* api._center_data().then(response => {
         // console.log(response);
         that.details.GSL.num = response.water_supply;
         if (response.water_supply_change > 0) {
@@ -205,7 +205,7 @@ export default {
         }
         that.details.SSL.compare.percentage =
           Math.abs(response.water_use_change) + "%";
-      });
+      }); */
     },
     dataChange() {
       /* this.details.GSL.num += 1;
@@ -217,15 +217,15 @@ export default {
     }
   },
   mounted: function() {
-    this.reflesh_data();
-    let that = this;
-    setInterval(() => {
+    // this.reflesh_data();
+    // let that = this;
+    /* setInterval(() => {
       that.details.GSL.num += 1;
       that.details.SSL.num += 1;
     }, 3000);
     setInterval(() => {
       that.details.LSSL.num += 1;
-    }, 10000);
+    }, 10000); */
   }
 };
 </script>

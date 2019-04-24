@@ -99,25 +99,23 @@ import block_5 from "./blockCharts/block_5";
 import block_6 from "./blockCharts/block_6";
 import block_7 from "./blockCharts/block_7";
 import block_8 from "./blockCharts/block_8";
-import { setTimeout } from "timers";
+// import { setTimeout } from "timers";
 
 export default {
   name: "index",
 
   data() {
     return {
-      loading: true
+      loading: false
     };
   },
 
   mounted() {
+    window.document.title = "漏损控制分区计量系统";
     let that = this;
     window.onresize = () => {
       that.$store.state.windowInfo.height = window.innerHeight;
     };
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
   },
 
   components: {

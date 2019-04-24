@@ -122,7 +122,7 @@ export default {
       var normal = L.layerGroup([normalm]);
 
       var map = (this.map = L.map("overviewGipCtr", {
-        center: [23.1333731684, 109.550707557],
+        center: [23.1033731644, 109.613707557],
         zoom: 13,
         maxZoom: 18,
         minZoom: 5,
@@ -131,13 +131,13 @@ export default {
         zoomControl: false
       }));
       this.renderPolygon(map);
-      this.renderPoint(map);
-      let gis_background = L.imageOverlay(gis_bg);
-      L.layerGroup()
-        .addLayer(gis_background)
-        .addTo(map);
+      // this.renderPoint(map);
+      // let gis_background = L.imageOverlay(gis_bg);
+      // L.layerGroup()
+      //   .addLayer(gis_background)
+      //   .addTo(map);
     },
-    renderPoint(map) {
+    /* renderPoint(map) {
       var self = this;
       if (self.isTest) {
         var stationIDs = [
@@ -213,7 +213,7 @@ export default {
           }
         });
       });
-    },
+    }, */
     renderPolygon(map) {
       var self = this;
       api._fqjl_dvtree().then(response => {
